@@ -1,0 +1,285 @@
+/* Importação de Fontes */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* Variáveis CSS para fácil manutenção */
+:root {
+  --primary-color: #7d2ae8;
+  --secondary-color: #5c1aa3;
+  --highlight-color: #ffcc00;
+  --text-color: #fff;
+  --background-light: rgba(255, 255, 255, 0.1);
+  --background-blur: rgba(243, 235, 235, 0.2);
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --spacing-unit: 1em;
+  --border-radius: 10px;
+  --transition-speed: 0.3s;
+}
+
+/* Reset Global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  min-height: 100vh;
+  background: var(--primary-color);
+  font-family: 'Roboto', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: var(--spacing-unit);
+}
+
+/* ----- Menu (Navbar) ----- */
+.navbar {
+  position: relative;
+  width: min(90%, 400px);
+  height: 80px;
+  background: white;
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: calc(var(--spacing-unit) * 2);
+  transform: translateY(-10px);
+}
+
+.navbar ul {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.navbar ul li {
+  list-style-type: none;
+  position: relative;
+}
+
+.navbar ul li a {
+  height: 80px;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: outline var(--transition-speed) ease;
+}
+
+.navbar ul li a:focus {
+  outline: 2px solid var(--highlight-color);
+}
+
+.navbar ul li a i {
+  color: var(--primary-color);
+  font-size: 28px;
+  position: absolute;
+}
+
+.activeIcon {
+  opacity: 0;
+  transition: opacity 0.6s ease 0.2s;
+}
+
+.navbar ul li.active-list a i {
+  opacity: 1;
+}
+
+.indicator {
+  position: absolute;
+  bottom: -12px;
+  left: 20px;
+  width: 20px;
+  height: 28px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.indicator::before,
+.indicator::after {
+  content: "";
+  position: absolute;
+  bottom: 50%;
+  height: 16px;
+  width: 16px;
+  background: white;
+}
+
+.indicator::before {
+  left: -12px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 0 10px 0 var(--primary-color);
+}
+
+.indicator::after {
+  right: -12px;
+  border-bottom-left-radius: 20px;
+  box-shadow: 0 10px 0 var(--primary-color);
+}
+
+/* ----- Menu Dropdown ----- */
+.navbar .dropdown {
+  position: relative;
+}
+
+.navbar .dropdown .submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  width: 200px;
+  z-index: 1;
+}
+
+.navbar .dropdown:hover .submenu {
+  display: block;
+}
+
+.submenu a {
+  padding: var(--spacing-unit);
+  text-decoration: none;
+  color: var(--primary-color);
+  display: block;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.submenu a:hover {
+  background-color: var(--background-blur);
+}
+
+/* ----- Main ----- */
+main {
+  width: 90%;
+  max-width: 900px;
+  background: transparent;
+  padding: 0;
+}
+
+/* ----- Home Section ----- */
+#home {
+  text-align: center;
+  padding: calc(var(--spacing-unit) * 2) 0;
+}
+
+.logo-container {
+  display: inline-block;
+  padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
+  background: var(--background-blur);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  margin-bottom: calc(var(--spacing-unit) * 3);
+}
+
+.logo-container h1 {
+  font-family: 'Bebas Neue', Arial, sans-serif;
+  font-size: 4em;
+  color: var(--text-color);
+  text-shadow: 2px 2px 5px var(--shadow-color);
+  margin: 0;
+}
+
+/* Barra de Pesquisa */
+.search-container {
+  margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.search-form input[type="text"] {
+  width: min(100%, 300px);
+  padding: var(--spacing-unit);
+  border: none;
+  border-bottom: 2px solid var(--text-color);
+  background: transparent;
+  color: var(--text-color);
+  font-size: 1.1em;
+  transition: border-color var(--transition-speed) ease;
+}
+
+.search-form input[type="text"]:focus {
+  border-color: var(--highlight-color);
+  outline: none;
+}
+
+.search-form button {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.5em;
+  cursor: pointer;
+  margin-left: var(--spacing-unit);
+  transition: color var(--transition-speed) ease;
+}
+
+.search-form button:hover,
+.search-form button:focus {
+  color: var(--highlight-color);
+  outline: 2px solid var(--highlight-color);
+}
+
+/* Resultados da Pesquisa */
+.search-results-bg {
+  position: relative;
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--background-light);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--border-radius);
+  padding: calc(var(--spacing-unit) * 2);
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.search-results-bg.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.result-line {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 20px;
+  background: var(--text-color);
+}
+
+.result-box {
+  width: 100%;
+  color: var(--text-color);
+}
+
+.result-box ul {
+  list-style: none;
+}
+
+.result-box li {
+  padding: calc(var(--spacing-unit) / 2) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ----- Outras Seções ----- */
+section {
+  display: none;
+}
+
+section.active {
+  display: block;
+}

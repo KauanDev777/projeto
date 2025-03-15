@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imovx - Leilão de Imóveis Online</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Boxicons -->
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+  <!-- Menu Reduzido com Indicador -->
+  <div class="navbar">
+    <ul>
+      <li class="active-list">
+        <a href="#" onclick="showSection('home')">
+          <i class='bx bx-home'></i>
+          <i class='bx bxs-home activeIcon'></i>
+        </a>
+      </li>
+      <li>
+        <a href="#" onclick="showSection('cadastro')">
+          <i class='bx bx-user-plus'></i>
+          <i class='bx bxs-user-plus activeIcon'></i>
+        </a>
+      </li>
+      <li>
+        <a href="#" onclick="showSection('login')">
+          <i class='bx bx-log-in'></i>
+          <i class='bx bxs-log-in activeIcon'></i>
+        </a>
+      </li>
+      <li>
+        <a href="#" onclick="showSection('imoveis')">
+          <i class='bx bx-building-house'></i>
+          <i class='bx bxs-building-house activeIcon'></i>
+        </a>
+
+        </li>
+      </li>
+      <li>
+        <a href="#" onclick="showSection('meus-dados')">
+          <i class='bx bx-user'></i>
+          <i class='bx bxs-user activeIcon'></i>
+        </a>
+      </li>
+      <div class="indicator"></div>
+    </ul>
+  </div>
+
+  <!-- Conteúdo Principal (sem fundo branco) -->
+  <main>
+    <!-- Home: Logo, Barra de Pesquisa e Resultado Animado -->
+    <section id="home" class="active">
+      <div class="logo-container">
+        <h1>Imovx</h1>
+      </div>
+      <div class="search-container">
+        <form id="searchForm" class="search-form">
+          <input type="text" id="searchInput" placeholder="Digite estado e cidade..." autocomplete="off" required>
+          <button type="submit"><i class='bx bx-search'></i></button>
+        </form>
+      </div>
+      <!-- DIV com os resultados da pesquisa -->
+      <div class="search-results-bg">
+        <div class="result-line"></div>
+        <div class="result-box">
+          <div id="searchResultText"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cadastro -->
+    <section id="cadastro">
+      <h2>Cadastro</h2>
+      <form id="cadastroForm">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+        <label for="emailCadastro">E-mail:</label>
+        <input type="email" id="emailCadastro" name="emailCadastro" required>
+        <label for="senhaCadastro">Senha:</label>
+        <input type="password" id="senhaCadastro" name="senhaCadastro" required>
+        <button type="submit">Cadastrar</button>
+      </form>
+    </section>
+
+    <!-- Login -->
+    <section id="login">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <label for="emailLogin">E-mail:</label>
+        <input type="email" id="emailLogin" name="emailLogin" required>
+        <label for="senhaLogin">Senha:</label>
+        <input type="password" id="senhaLogin" name="senhaLogin" required>
+        <button type="submit">Entrar</button>
+      </form>
+    </section>
+
+    <!-- Imóveis -->
+    <section id="imoveis">
+      <h2>Imóveis em Leilão</h2>
+      <div class="property-list" id="propertyList">
+        <!-- Cards de imóveis gerados via JavaScript -->
+      </div>
+    </section>
+
+    <!-- Detalhes do Imóvel -->
+    <section id="detalhesImovel">
+      <h2>Detalhes do Imóvel</h2>
+      <div id="propertyDetails"></div>
+      <button onclick="showSection('imoveis')">Voltar</button>
+    </section>
+
+    <!-- Meus Dados -->
+    <section id="meus-dados">
+      <h2>Meus Dados</h2>
+      <p id="userData"></p>
+    </section>
+  </main>
+
+  <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site de Imóveis</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Menu de Navegação -->
+  <div class="navbar">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">Sobre</a></li>
+      <li class="dropdown">
+        <a href="javascript:void(0)">Imóveis</a>
+        <div class="submenu">
+          <a href="#property-list">Lista de Imóveis</a>
+          <a href="#add-property">Adicionar Imóvel</a>
+          <a href="#search-properties">Buscar Imóveis</a>
+        </div>
+      </li>
+      <li><a href="#contact">Contato</a></li>
+    </ul>
+  </div>
+
+  <!-- Seção Home -->
+  <section id="home" class="active">
+    <div class="logo-container">
+      
+    </div>
+    <div class="search-container">
+      <div class="search-form">
+        <input type="text" id="searchInput" placeholder="Buscar imóvel...">
+        <button type="submit">Buscar</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Imóveis -->
+  <section id="imoveis">
+    <div id="property-list">
+      <h2>Lista de Imóveis</h2>
+      <!-- Lista de imóveis será carregada aqui -->
+    </div>
+    
+    <div id="add-property">
+      <h2>Adicionar Imóvel</h2>
+      <form id="addPropertyForm">
+        <label for="propertyName">Nome do Imóvel</label>
+        <input type="text" id="propertyName" required>
+        <label for="propertyPrice">Preço</label>
+        <input type="text" id="propertyPrice" required>
+        <button type="submit">Adicionar Imóvel</button>
+      </form>
+    </div>
+
+    <div id="search-properties">
+
+      <form id="searchForm">
+        <input type="text" id="searchInput" placeholder="Digite o nome do imóvel" required>
+        <button type="submit">Buscar</button>
+      </form>
+      <div id="searchResultText"></div>
+      <div class="search-results-bg">
+        <div class="result-line"></div>
+        <div class="result-box">
+          <ul id="searchResults"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Contato -->
+  <section id="contact">
+    <h2>Contato</h2>
+    <!-- Informações de contato -->
+  </section>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
